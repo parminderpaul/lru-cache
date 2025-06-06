@@ -1,0 +1,6 @@
+# Java binaries and libraries
+java/bin
+java/lib
+
+# Python cache
+python/src/__pycache__
