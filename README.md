@@ -62,6 +62,7 @@ the `README.md` file within each directory for usage instructions.
 
 Languages represented are:
 
+- Go
 - Java
 - PHP
 - Python
