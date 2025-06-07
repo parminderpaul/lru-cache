@@ -35,9 +35,9 @@ cache.put('key3', 'new_value3');  // Updates value and makes key3 most recently 
 
 # Notes
 
-Unlike other implementations in this project, which mostly use either loosely-typed programming
-languages (PHP, Python, Ruby) or a generic superclass (Java) or interface (Go) to represent the
-stored item, this implementation uses TypeScript's Generics.
+Most other implementations in this project use either a generic object (for loosely-typed languages
+PHP, Python, and Ruby) or else an interface (in not-really-OOP Go) to represent the stored item.
+However, this implementation (and Java's) uses Generics.
 
 This means that you'll want to specify the type of object that you'll be caching upon
 instantiation, although this can be a generic superclass (e.g. `<object>`) or specific complex

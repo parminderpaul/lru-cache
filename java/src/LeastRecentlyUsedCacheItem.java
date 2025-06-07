@@ -2,18 +2,18 @@
  * Represents a single item in the LRU cache, stored as a node in a doubly-linked list.
  * Each item contains a key, value, and references to the next and previous items in the list.
  */
-public class LeastRecentlyUsedCacheItem {
+public class LeastRecentlyUsedCacheItem<T> {
 	private final String key;
-	private final Object value;
+	private final T value;
 	private LeastRecentlyUsedCacheItem next;
 	private LeastRecentlyUsedCacheItem prev;
 
-	public LeastRecentlyUsedCacheItem(String key, Object value) {
+	public LeastRecentlyUsedCacheItem(String key, T value) {
 		this.key = key;
 		this.value = value;
 	}
 
-	public LeastRecentlyUsedCacheItem(String key, Object value, LeastRecentlyUsedCacheItem next, LeastRecentlyUsedCacheItem prev) {
+	public LeastRecentlyUsedCacheItem(String key, T value, LeastRecentlyUsedCacheItem next, LeastRecentlyUsedCacheItem prev) {
 		this.key = key;
 		this.value = value;
 		this.next = next;

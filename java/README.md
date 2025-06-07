@@ -37,3 +37,23 @@ cache.put("key3", "new_value3"); // Updates value and makes key3 most recently u
 
 This project didn't seem large enough to justify adding e.g. Gradle or Maven to manage the build
 and test process, so I just added scripts.
+
+Most other implementations in this project use either a generic object (for loosely-typed languages
+PHP, Python, and Ruby) or else an interface (in not-really-OOP Go) to represent the stored item.
+However, this implementation (and TypeScript's) uses Generics.
+
+This means that you'll want to specify the type of object that you'll be caching upon
+instantiation, although this can be a generic superclass (e.g. `<Object>`) or specific complex
+object, e.g.:
+
+```java
+public class Page {
+	private final string slug;
+	private string title;
+  private string content;
+
+  // ...
+}
+
+LeastRecentlyUsedCache<Page> pageCache = new LeastRecentlyUsedCache<Page>(100);
+```

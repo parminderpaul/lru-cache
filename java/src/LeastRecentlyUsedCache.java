@@ -5,11 +5,11 @@ import java.util.Map;
  * Implementation of a Least Recently Used (LRU) cache using a HashMap for O(1) lookups
  * and a doubly-linked list for maintaining the order of items by their usage.
  */
-public class LeastRecentlyUsedCache {
+public class LeastRecentlyUsedCache<T> {
 	private final int capacity;
-	private final Map<String, LeastRecentlyUsedCacheItem> cache;
-	private LeastRecentlyUsedCacheItem head;  // Most recently used
-	private LeastRecentlyUsedCacheItem tail;  // Least recently used
+	private final Map<String, LeastRecentlyUsedCacheItem<T>> cache;
+	private LeastRecentlyUsedCacheItem<T> head;  // Most recently used
+	private LeastRecentlyUsedCacheItem<T> tail;  // Least recently used
 
 	/**
 	 * Creates a new LRU cache with the specified capacity.
@@ -34,9 +34,9 @@ public class LeastRecentlyUsedCache {
 	public void put(String key, Object value) {
 		// If key exists, update it and move to front
 		if (cache.containsKey(key)) {
-			LeastRecentlyUsedCacheItem oldItem = cache.get(key);
+			LeastRecentlyUsedCacheItem<T> oldItem = cache.get(key);
 			removeFromList(oldItem);  // Remove the old item from the list
-			LeastRecentlyUsedCacheItem newItem = new LeastRecentlyUsedCacheItem(key, value);
+			LeastRecentlyUsedCacheItem<T> newItem = new LeastRecentlyUsedCacheItem(key, value);
 			addToFront(newItem);
 			cache.put(key, newItem);
 			return;
@@ -48,7 +48,7 @@ public class LeastRecentlyUsedCache {
 		}
 
 		// Add new item
-		LeastRecentlyUsedCacheItem newItem = new LeastRecentlyUsedCacheItem(key, value);
+		LeastRecentlyUsedCacheItem<T> newItem = new LeastRecentlyUsedCacheItem(key, value);
 		addToFront(newItem);
 		cache.put(key, newItem);
 	}
@@ -61,7 +61,7 @@ public class LeastRecentlyUsedCache {
 	 * @throws IllegalArgumentException if the key is not found in the cache
 	 */
 	public Object get(String key) {
-		LeastRecentlyUsedCacheItem item = cache.get(key);
+		LeastRecentlyUsedCacheItem<T> item = cache.get(key);
 		if (item == null) {
 			throw new IllegalArgumentException("Key not found in cache: " + key);
 		}
@@ -81,7 +81,7 @@ public class LeastRecentlyUsedCache {
 		}
 	}
 
-	private void removeFromList(LeastRecentlyUsedCacheItem item) {
+	private void removeFromList(LeastRecentlyUsedCacheItem<T> item) {
 		if (item == null) return;
 
 		// Update prev item's next pointer
@@ -105,7 +105,7 @@ public class LeastRecentlyUsedCache {
 		item.setPrev(null);
 	}
 
-	private void addToFront(LeastRecentlyUsedCacheItem item) {
+	private void addToFront(LeastRecentlyUsedCacheItem<T> item) {
 		if (head == null) {
 			// First item in the list
 			head = item;

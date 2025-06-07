@@ -6,22 +6,22 @@ public class LeastRecentlyUsedCacheTest {
 	@Test
 	public void testConstructor() {
 		// Test valid capacity
-		LeastRecentlyUsedCache cache = new LeastRecentlyUsedCache(5);
+		LeastRecentlyUsedCache<String> cache = new LeastRecentlyUsedCache<String>(5);
 		assertNotNull(cache);
 
 		// Test invalid capacity
 		assertThrows(IllegalArgumentException.class, () -> {
-			new LeastRecentlyUsedCache(0);
+			new LeastRecentlyUsedCache<String>(0);
 		}, "Should have thrown IllegalArgumentException for capacity 0");
 
 		assertThrows(IllegalArgumentException.class, () -> {
-			new LeastRecentlyUsedCache(-1);
+			new LeastRecentlyUsedCache<String>(-1);
 		}, "Should have thrown IllegalArgumentException for negative capacity");
 	}
 
 	@Test
 	public void testPutAndGet() {
-		LeastRecentlyUsedCache cache = new LeastRecentlyUsedCache(3);
+		LeastRecentlyUsedCache<String> cache = new LeastRecentlyUsedCache(3);
 
 		// Test basic put and get
 		cache.put("key1", "value1");
@@ -39,7 +39,7 @@ public class LeastRecentlyUsedCacheTest {
 
 	@Test
 	public void testLRUBehavior() {
-		LeastRecentlyUsedCache cache = new LeastRecentlyUsedCache(3);
+		LeastRecentlyUsedCache<String> cache = new LeastRecentlyUsedCache(3);
 
 		// Fill the cache
 		cache.put("key1", "value1");
@@ -65,7 +65,7 @@ public class LeastRecentlyUsedCacheTest {
 
 	@Test
 	public void testAccessOrder() {
-		LeastRecentlyUsedCache cache = new LeastRecentlyUsedCache(3);
+		LeastRecentlyUsedCache<String> cache = new LeastRecentlyUsedCache(3);
 
 		// Fill the cache
 		cache.put("key1", "value1");
@@ -89,7 +89,7 @@ public class LeastRecentlyUsedCacheTest {
 
 	@Test
 	public void testUpdateExistingKey() {
-		LeastRecentlyUsedCache cache = new LeastRecentlyUsedCache(2);
+		LeastRecentlyUsedCache<String> cache = new LeastRecentlyUsedCache(2);
 
 		// Add two items
 		cache.put("key1", "value1");
