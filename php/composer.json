@@ -2,6 +2,14 @@
   "name": "lru-cache/php",
   "description": "OOP LRU Cache in PHP",
   "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dan Q",
+      "email": "github@danq.me",
+      "homepage": "https://danq.me/"
+    }
+  ],
   "require": {
     "php": ">=8.4"
   },
