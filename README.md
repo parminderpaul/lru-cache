@@ -71,3 +71,4 @@ Languages represented are:
 - PHP
 - Python
 - Ruby
+- TypeScript (for Node)

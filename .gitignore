@@ -7,3 +7,7 @@ python/src/__pycache__
 
 # PHP vendor cache
 php/vendor
+
+# TypeScript dist, dependencies
+typescript/node_modules
+typescript/dist
