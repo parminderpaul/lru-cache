@@ -29,6 +29,8 @@ discarded if the queue would become too long. For `get` retrieval, we could iter
 queue until we find the matching item and return it, if present, as well as moving it up to the
 head of the queue.
 
+![Illustration showing the basic version of an LRU cache](https://github.com/user-attachments/assets/a7b51723-dc9d-4252-8cc4-9da83a2e9f3d)
+
 However, this does not meet the brief because both `put` and `get` exhibit up-to O(n) complexity,
 because both operations require a full iteration through the collection as well as potentially
 re-arranging the queue by hoisting a new item to its head. To get O(1) complexity, we need a more
@@ -41,6 +43,8 @@ An LRU cache can achieve O(1) complexity with two modifications to the above:
 1. Use of a hashmap to connect the cache keys to the items in the cache, and
 2. Use of a doubly-linked-list as the underlying data structure, which allows for re-arrangement
    of the queue in linear time.
+
+![Illustration showing the O(1) version of the LRU cache](https://github.com/user-attachments/assets/a08d50b0-f887-4de5-b45d-f877f683148e)
 
 Under this model:
 
