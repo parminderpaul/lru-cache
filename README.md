@@ -4,6 +4,8 @@ An object-oriented implementation of an Least-Recently Used (LRU) Cache in sever
 programming languages, using a hashmap + doubly-linked-list structure to facilitate O(1) `get` and
 `put` operations.
 
+**[Read more about this project - why I did it, and what I learned - on my blog](https://danq.me/2025/06/07/lru-cache-challenge).**
+
 ## Background
 
 To keep my hand in at a selection of different object-oriented programming languages, some of which
